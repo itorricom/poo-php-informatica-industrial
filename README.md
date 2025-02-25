@@ -67,3 +67,56 @@ class Auth {
 Aquí, el concepto de abstracción se manifiesta al definir claramente lo que la clase Auth necesita para funcionar (atributos y métodos necesarios), sin preocuparse inicialmente por los detalles de implementación.
 
 La abstracción en programación orientada a objetos es más que un concepto; es una práctica que promueve el orden y la claridad en el desarrollo de software. ¡Sigue explorando y aplicando estas técnicas, y observa cómo tu código se transforma en una obra maestra organizada! No olvides crear tus propios ejemplos y compartir tus descubrimientos para seguir fomentando el aprendizaje y el intercambio de ideas.
+
+
+# Alcance o Encapsulamiento
+¿Qué es el alcance en programación orientada a objetos?
+Entender el alcance en programación es clave para cualquier desarrollador que busque crear aplicaciones robustas y seguras. El alcance define la accesibilidad de propiedades y métodos dentro de una clase, asegurando la integridad de los datos y evitando modificaciones no autorizadas. Este concepto se relaciona estrechamente con el encapsulamiento, también conocido como el principio de ocultación. Veamos cómo se implementa en PHP.
+
+¿Cómo se definen los tipos de alcance?
+En PHP, existen tres tipos principales de alcance:
+
+Público: Los elementos definidos como públicos son accesibles desde cualquier punto del código. Esto significa que tanto las clases como otros archivos pueden acceder a estos elementos.
+
+Protegido: Estos elementos solo pueden ser accedidos por la clase que los define y sus subclases. Es una forma efectiva de permitir que las clases derivadas interactúen con ciertos datos sin exponerlos completamente.
+
+Privado: Los elementos privados son accesibles exclusivamente dentro de la clase que los declara. Ni siquiera las subclases pueden acceder a estos métodos o propiedades.
+
+Un ejemplo concreto sería definir diferentes alcances para las propiedades y constantes dentro de una clase de usuario:
+
+class User {
+    public const PAGINACION = 25;
+    public $username;
+    protected $email;
+    private $password;
+}
+
+¿Cómo se implementa el encapsulamiento?
+El encapsulamiento es un pilar de la programación orientada a objetos que busca proteger los datos y funciones de una clase de su modificación externa. Al definir propiedades y métodos con diferentes niveles de acceso, logramos un control preciso sobre cómo y dónde pueden ser utilizados esos elementos. Veamos cómo podríamos utilizar este concepto en una clase:
+
+class User {
+    public $username;
+    protected $email;
+    private $password;
+
+    public function obtenerNombreDeUsuario() {
+        // Código para obtener el nombre de usuario
+    }
+}
+
+¿Por qué es importante la definición del alcance?
+Definir correctamente el alcance es crucial por varias razones:
+
+Integridad de los datos: Al restringir el acceso a ciertos datos, podemos evitar modificaciones no autorizadas que podrían llevar a inconsistencias o errores en el sistema.
+
+Seguridad: Elementos como contraseñas deben estar protegidos (o privatizados) para que no puedan ser alterados directamente desde fuera del sistema.
+
+Mantenimiento: Un código con un buen uso del encapsulamiento es más fácil de mantener y entender, ya que limita la complejidad al ocultar detalles innecesarios para otras partes del sistema.
+¿Cuándo usar cada tipo de alcance?
+El uso de alcances depende de las necesidades específicas del sistema y el diseño del software:
+
+Usa public cuando necesites que una propiedad o método sea accesible desde cualquier parte.
+Opta por protected cuando quieras que la funcionalidad sea visible y modificable por clases derivadas, pero no por clases externas.
+Elige private cuando el atributo o método no deba ser visto ni alterado más que dentro de su propia clase.
+
+En resumen, comprender el alcance y el encapsulamiento es fundamental para cualquier programador que desee escribir código limpio, eficiente y seguro. Elegir adecuadamente el tipo de acceso correcto puede marcar la diferencia entre una aplicación vulnerable y una aplicación auditada y estable.
